@@ -118,7 +118,7 @@ export default function Clients() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-6xl md:text-8xl font-bold font-playfair mb-8">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              <span className="text-primary">
                 Recognized
               </span>
               <br />
@@ -251,6 +251,24 @@ export default function Clients() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-border">
+        <div className="container mx-auto px-6 text-center">
+          <div className="flex justify-center mb-8">
+            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+              <img 
+                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                alt="Arowona Logo" 
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm">
+            All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -90,11 +90,19 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-4xl">
           <motion.div className="mb-8">
             <div className="flex items-center justify-center space-x-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-xl font-bold text-background font-playfair">A</span>
+              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                <img 
+                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  alt="Arowona Logo" 
+                  className="w-8 h-8 object-contain"
+                />
               </div>
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                <span className="text-xl font-bold text-background font-playfair">A</span>
+              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                <img 
+                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  alt="Arowona Logo" 
+                  className="w-8 h-8 object-contain"
+                />
               </div>
             </div>
           </motion.div>
@@ -102,7 +110,7 @@ export default function Home() {
           <h1 className="hero-title text-6xl md:text-8xl font-bold font-playfair mb-6 text-balance">
             Capture
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-primary">
               the Crave
             </span>
           </h1>
@@ -123,7 +131,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="px-8 py-6 text-lg">
+            <Button asChild variant="secondary" size="lg" className="px-8 py-6 text-lg">
               <Link href="/contact">Get In Touch</Link>
             </Button>
           </motion.div>
@@ -219,31 +227,49 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-8">
             <motion.div
-              className="bg-gradient-to-br from-primary to-primary/80 p-16 rounded-2xl text-center text-background flex flex-col justify-center"
+              className="bg-primary p-16 rounded-2xl text-center text-primary-foreground flex flex-col justify-center"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-4xl font-bold font-playfair mb-4">Portfolio</h3>
               <p className="text-lg mb-8 opacity-90">View my work</p>
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 <Link href="/portfolio">Explore</Link>
               </Button>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-secondary to-secondary/80 p-16 rounded-2xl text-center text-background flex flex-col justify-center"
+              className="bg-secondary p-16 rounded-2xl text-center text-secondary-foreground flex flex-col justify-center"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-4xl font-bold font-playfair mb-4">Clients</h3>
               <p className="text-lg mb-8 opacity-90">Recognized By</p>
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="outline" size="lg" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
                 <Link href="/clients">View Clients</Link>
               </Button>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-border">
+        <div className="container mx-auto px-6 text-center">
+          <div className="flex justify-center mb-8">
+            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+              <img 
+                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                alt="Arowona Logo" 
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm">
+            All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

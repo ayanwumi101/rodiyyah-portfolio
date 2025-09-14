@@ -43,9 +43,13 @@ export function Preloader() {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <div className="preloader-logo relative">
-            <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary">
-              <span className="text-4xl font-bold text-background font-playfair">A</span>
-              <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
+            <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-white">
+              <img 
+                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                alt="Arowona Logo" 
+                className="w-16 h-16 object-contain"
+              />
+              <div className="absolute inset-0 rounded-full bg-white/20 animate-ping"></div>
             </div>
             <motion.div
               className="mt-6 text-center"

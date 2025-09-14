@@ -102,8 +102,8 @@ export default function Portfolio() {
             </div>
 
             {/* Text Half */}
-            <div className="category-overlay w-1/2 h-full bg-primary/70 flex items-center justify-center relative group transition-all duration-300 hover:bg-primary/90">
-              <div className="text-center text-background">
+            <div className="category-overlay w-1/2 h-full bg-primary/90 flex items-center justify-center relative group transition-all duration-300 hover:bg-primary">
+              <div className="text-center text-primary-foreground">
                 <h2 className="text-4xl md:text-6xl font-bold font-playfair mb-8 whitespace-pre-line">
                   {category.title}
                 </h2>
@@ -114,19 +114,37 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="w-16 h-16 rounded-full border-2 border-background flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full border-2 border-primary-foreground flex items-center justify-center">
                     <ArrowRight className="w-8 h-8" />
                   </div>
                 </motion.div>
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute top-8 right-8 w-2 h-16 bg-secondary opacity-80"></div>
-              <div className="absolute bottom-8 left-8 w-16 h-2 bg-secondary opacity-80"></div>
+              <div className="absolute top-8 right-8 w-2 h-16 bg-white opacity-80"></div>
+              <div className="absolute bottom-8 left-8 w-16 h-2 bg-white opacity-80"></div>
             </div>
           </motion.section>
         </Link>
       ))}
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-border">
+        <div className="container mx-auto px-6 text-center">
+          <div className="flex justify-center mb-8">
+            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+              <img 
+                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                alt="Arowona Logo" 
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm">
+            All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

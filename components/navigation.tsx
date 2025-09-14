@@ -42,11 +42,15 @@ export function Navigation() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <motion.div
-                className="relative w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center"
+                className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-xl font-bold text-background font-playfair">A</span>
+                <img 
+                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  alt="Arowona Logo" 
+                  className="w-8 h-8 object-contain"
+                />
               </motion.div>
             </Link>
 

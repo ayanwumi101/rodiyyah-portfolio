@@ -94,7 +94,7 @@ export default function Contact() {
         {/* Hero Section */}
         <motion.div className="contact-hero text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold font-playfair mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-primary">
               GET IN TOUCH
             </span>
           </h1>
@@ -303,7 +303,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="submit-btn w-full md:w-auto px-12 py-4 text-lg font-medium tracking-wider bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300"
+                  className="submit-btn w-full md:w-auto px-12 py-4 text-lg font-medium tracking-wider bg-primary hover:bg-primary/90 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -315,28 +315,34 @@ export default function Contact() {
         </div>
 
         {/* Footer */}
-        <motion.footer 
-          className="mt-20 pt-12 border-t border-border text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-        >
-          <div className="flex justify-center space-x-6 mb-8">
-            {[Instagram, Twitter, Linkedin].map((Icon, index) => (
-              <motion.a
-                key={index}
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                whileHover={{ scale: 1.2, y: -2 }}
-              >
-                <Icon className="w-6 h-6" />
-              </motion.a>
-            ))}
+        <footer className="mt-20 pt-12 border-t border-border">
+          <div className="container mx-auto px-6 text-center">
+            <div className="flex justify-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+                <img 
+                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  alt="Arowona Logo" 
+                  className="w-10 h-10 object-contain"
+                />
+              </div>
+            </div>
+            <div className="flex justify-center space-x-6 mb-8">
+              {[Instagram, Twitter, Linkedin].map((Icon, index) => (
+                <motion.a
+                  key={index}
+                  href="#"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                >
+                  <Icon className="w-6 h-6" />
+                </motion.a>
+              ))}
+            </div>
+            <p className="text-muted-foreground text-sm">
+              All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
+            </p>
           </div>
-          <p className="text-muted-foreground text-sm">
-            All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
-          </p>
-        </motion.footer>
+        </footer>
       </div>
     </div>
   );
