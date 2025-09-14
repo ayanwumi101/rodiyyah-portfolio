@@ -42,25 +42,23 @@ export function Preloader() {
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <div className="preloader-logo relative">
-            <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-white">
+          <div className="preloader-logo relative flex flex-col items-center justify-center">
+            <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-white mb-6">
               <img 
-                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                src="/a-logo.png" 
                 alt="Arowona Logo" 
                 className="w-16 h-16 object-contain"
               />
               <div className="absolute inset-0 rounded-full bg-white/20 animate-ping"></div>
             </div>
-            <motion.div
-              className="mt-6 text-center"
+            <motion.p
+              className="text-lg text-cyan-400 font-light tracking-wider text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <p className="text-sm text-muted-foreground font-light tracking-wider">
-                AROWONA PHOTOGRAPHY
-              </p>
-            </motion.div>
+              AROWONA PHOTOGRAPHY
+            </motion.p>
           </div>
         </motion.div>
       )}

@@ -42,12 +42,12 @@ export function Navigation() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <motion.div
-                className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center"
+                className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center btn-hover"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <img 
-                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  src="/a-logo.png" 
                   alt="Arowona Logo" 
                   className="w-8 h-8 object-contain"
                 />
@@ -59,7 +59,7 @@ export function Navigation() {
               {navItems.map((item) => (
                 <Link key={item.name} href={item.href}>
                   <motion.span
-                    className={`text-sm font-medium tracking-wider transition-colors duration-300 ${
+                    className={`text-base font-medium tracking-wider transition-colors duration-300 text-glow ${
                       pathname === item.href
                         ? 'text-primary'
                         : 'text-foreground hover:text-primary'

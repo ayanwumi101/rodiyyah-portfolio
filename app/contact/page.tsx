@@ -93,12 +93,12 @@ export default function Contact() {
       <div className="container mx-auto px-6 py-12">
         {/* Hero Section */}
         <motion.div className="contact-hero text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold font-playfair mb-6">
+          <h1 className="text-6xl md:text-8xl font-bold font-playfair mb-6 text-glow">
             <span className="text-primary">
               GET IN TOUCH
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-2xl md:text-3xl text-cyan-300 max-w-2xl mx-auto">
             Send us a message and we'll respond as soon as possible
           </p>
         </motion.div>
@@ -107,10 +107,10 @@ export default function Contact() {
           {/* Contact Information */}
           <motion.div className="contact-info lg:col-span-1 space-y-8">
             <div>
-              <h3 className="text-2xl font-bold font-playfair mb-6 text-primary">
+              <h3 className="text-3xl font-bold font-playfair mb-6 text-primary text-glow">
                 Let's Connect
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-cyan-300 leading-relaxed text-lg">
                 Ready to bring your vision to life? I'd love to hear about your project 
                 and discuss how we can create something amazing together.
               </p>
@@ -127,7 +127,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">hello@arowona.com</p>
+                  <p className="text-cyan-300">hello@arowona.com</p>
                 </div>
               </motion.div>
 
@@ -141,7 +141,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+234 xxx xxx xxxx</p>
+                  <p className="text-cyan-300">+234 xxx xxx xxxx</p>
                 </div>
               </motion.div>
 
@@ -155,7 +155,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
-                  <p className="text-muted-foreground">Abuja & Ibadan, Nigeria</p>
+                  <p className="text-cyan-300">Abuja & Ibadan, Nigeria</p>
                 </div>
               </motion.div>
             </div>
@@ -303,7 +303,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="submit-btn w-full md:w-auto px-12 py-4 text-lg font-medium tracking-wider bg-primary hover:bg-primary/90 transition-all duration-300"
+                  className="submit-btn w-full md:w-auto px-12 py-4 text-lg font-medium tracking-wider bg-primary hover:bg-primary/90 transition-all duration-300 btn-hover"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -320,7 +320,7 @@ export default function Contact() {
             <div className="flex justify-center mb-8">
               <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
                 <img 
-                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  src="/a-logo.png" 
                   alt="Arowona Logo" 
                   className="w-10 h-10 object-contain"
                 />
@@ -331,14 +331,14 @@ export default function Contact() {
                 <motion.a
                   key={index}
                   href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                  className="text-cyan-400 hover:text-primary transition-colors duration-300 btn-hover"
                   whileHover={{ scale: 1.2, y: -2 }}
                 >
                   <Icon className="w-6 h-6" />
                 </motion.a>
               ))}
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-cyan-400 text-base">
               All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
             </p>
           </div>

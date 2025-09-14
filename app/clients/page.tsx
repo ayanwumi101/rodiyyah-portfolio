@@ -258,13 +258,13 @@ export default function Clients() {
           <div className="flex justify-center mb-8">
             <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
               <img 
-                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                src="/a-logo.png" 
                 alt="Arowona Logo" 
                 className="w-10 h-10 object-contain"
               />
             </div>
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-cyan-400 text-base">
             All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
           </p>
         </div>

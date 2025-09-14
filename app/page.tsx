@@ -92,14 +92,14 @@ export default function Home() {
             <div className="flex items-center justify-center space-x-4 mb-6">
               <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
                 <img 
-                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  src="/a-logo.png" 
                   alt="Arowona Logo" 
                   className="w-8 h-8 object-contain"
                 />
               </div>
               <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
                 <img 
-                  src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                  src="/a-logo.png" 
                   alt="Arowona Logo" 
                   className="w-8 h-8 object-contain"
                 />
@@ -107,7 +107,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <h1 className="hero-title text-6xl md:text-8xl font-bold font-playfair mb-6 text-balance">
+          <h1 className="hero-title text-7xl md:text-9xl font-bold font-playfair mb-6 text-balance text-glow text-animate">
             Capture
             <br />
             <span className="text-primary">
@@ -115,7 +115,7 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className="hero-subtitle text-xl md:text-2xl text-muted-foreground mb-12 font-light">
+          <p className="hero-subtitle text-2xl md:text-3xl text-cyan-300 mb-12 font-light text-animate">
             Elevating brands through stunning food, product & nature photography
           </p>
 
@@ -125,13 +125,13 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4.5, duration: 0.8 }}
           >
-            <Button asChild size="lg" className="px-8 py-6 text-lg">
+            <Button asChild size="lg" className="px-8 py-6 text-lg btn-hover">
               <Link href="/portfolio">
                 Explore Work
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="secondary" size="lg" className="px-8 py-6 text-lg">
+            <Button asChild variant="secondary" size="lg" className="px-8 py-6 text-lg btn-hover">
               <Link href="/contact">Get In Touch</Link>
             </Button>
           </motion.div>
@@ -161,7 +161,7 @@ export default function Home() {
             </motion.div>
 
             <div className="space-y-8">
-              <h2 className="text-5xl md:text-6xl font-bold font-playfair">
+              <h2 className="text-6xl md:text-7xl font-bold font-playfair text-glow">
                 Food, Product
                 <br />
                 and Nature
@@ -169,13 +169,13 @@ export default function Home() {
                 <span className="text-primary">Photographer</span>
               </h2>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-xl text-cyan-300 leading-relaxed">
                 Arowona is a photographer specializing in food and product imagery, working with 
                 clients in Abuja and Ibadan to create stunning visuals that elevate their brands. 
                 I believe that every image should tell a story and capture the essence of the subject.
               </p>
 
-              <Button asChild size="lg" className="px-8 py-4">
+              <Button asChild size="lg" className="px-8 py-4 btn-hover">
                 <Link href="/portfolio">
                   EXPLORE
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -191,7 +191,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-5xl md:text-6xl font-bold font-playfair">
+              <h2 className="text-6xl md:text-7xl font-bold font-playfair text-glow">
                 Ready to
                 <br />
                 bring your
@@ -201,7 +201,7 @@ export default function Home() {
                 to life?
               </h2>
               
-              <Button asChild size="lg" className="px-8 py-4">
+              <Button asChild size="lg" className="px-8 py-4 btn-hover">
                 <Link href="/contact">
                   GET IN TOUCH
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -232,8 +232,8 @@ export default function Home() {
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-4xl font-bold font-playfair mb-4">Portfolio</h3>
-              <p className="text-lg mb-8 opacity-90">View my work</p>
-              <Button asChild variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <p className="text-xl mb-8 opacity-90">View my work</p>
+              <Button asChild variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary btn-hover">
                 <Link href="/portfolio">Explore</Link>
               </Button>
             </motion.div>
@@ -244,8 +244,8 @@ export default function Home() {
               transition={{ duration: 0.3 }}
             >
               <h3 className="text-4xl font-bold font-playfair mb-4">Clients</h3>
-              <p className="text-lg mb-8 opacity-90">Recognized By</p>
-              <Button asChild variant="outline" size="lg" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
+              <p className="text-xl mb-8 opacity-90">Recognized By</p>
+              <Button asChild variant="outline" size="lg" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary btn-hover">
                 <Link href="/clients">View Clients</Link>
               </Button>
             </motion.div>
@@ -259,13 +259,13 @@ export default function Home() {
           <div className="flex justify-center mb-8">
             <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
               <img 
-                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                src="/a-logo.png" 
                 alt="Arowona Logo" 
                 className="w-10 h-10 object-contain"
               />
             </div>
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-cyan-400 text-base">
             All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
           </p>
         </div>

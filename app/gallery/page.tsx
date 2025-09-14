@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { X, Download, Share2 } from 'lucide-react';
+import { X, Download, Share2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
@@ -59,6 +59,7 @@ function GalleryContent() {
   const initialCategory = searchParams?.get('category') || 'food';
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const centerColumnRef = useRef<HTMLDivElement>(null);
@@ -73,6 +74,36 @@ function GalleryContent() {
   const centerImages = currentImages.filter((_, index) => index % 3 === 1);
   const rightImages = currentImages.filter((_, index) => index % 3 === 2);
 
+  const openModal = useCallback((image: string) => {
+    const index = currentImages.indexOf(image);
+    setSelectedImage(image);
+    setSelectedImageIndex(index);
+  }, [currentImages]);
+
+  const nextImage = useCallback(() => {
+    const nextIndex = (selectedImageIndex + 1) % currentImages.length;
+    setSelectedImage(currentImages[nextIndex]);
+    setSelectedImageIndex(nextIndex);
+  }, [selectedImageIndex, currentImages]);
+
+  const prevImage = useCallback(() => {
+    const prevIndex = selectedImageIndex === 0 ? currentImages.length - 1 : selectedImageIndex - 1;
+    setSelectedImage(currentImages[prevIndex]);
+    setSelectedImageIndex(prevIndex);
+  }, [selectedImageIndex, currentImages]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImage) {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, nextImage, prevImage]);
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Parallax effect for columns
@@ -136,10 +167,10 @@ function GalleryContent() {
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Category Tabs */}
-      <div className="sticky top-20 z-30 bg-background/95 backdrop-blur-md border-b border-border">
+      <div className="sticky top-20 z-30 glass-effect border-b border-border">
         <div className="container mx-auto px-6 py-6">
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold font-playfair mb-8"
+            className="text-5xl md:text-7xl font-bold font-playfair mb-8 text-glow"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -153,7 +184,7 @@ function GalleryContent() {
                 key={category}
                 variant={activeCategory === category ? 'default' : 'outline'}
                 onClick={() => setActiveCategory(category)}
-                className="px-6 py-2 text-sm font-medium tracking-wider uppercase transition-all duration-300"
+                className="px-6 py-2 text-base font-medium tracking-wider uppercase transition-all duration-300 btn-hover"
               >
                 {category}
               </Button>
@@ -178,7 +209,7 @@ function GalleryContent() {
                 layoutId={`image-${image}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
-                onClick={() => setSelectedImage(image)}
+                onClick={() => openModal(image)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
                   <Image
@@ -188,7 +219,7 @@ function GalleryContent() {
                     height={600}
                     className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             ))}
@@ -203,7 +234,7 @@ function GalleryContent() {
                 layoutId={`image-${image}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
-                onClick={() => setSelectedImage(image)}
+                onClick={() => openModal(image)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
                   <Image
@@ -213,7 +244,7 @@ function GalleryContent() {
                     height={600}
                     className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             ))}
@@ -228,7 +259,7 @@ function GalleryContent() {
                 layoutId={`image-${image}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
-                onClick={() => setSelectedImage(image)}
+                onClick={() => openModal(image)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
                   <Image
@@ -238,7 +269,7 @@ function GalleryContent() {
                     height={600}
                     className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             ))}
@@ -250,43 +281,74 @@ function GalleryContent() {
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-strong"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
+            {/* Action Buttons - Top Overlay */}
+            <div className="absolute top-6 right-6 z-60 flex space-x-3">
+              <Button size="sm" className="glass-effect p-3 btn-hover">
+                <Download className="w-5 h-5" />
+              </Button>
+              <Button size="sm" className="glass-effect p-3 btn-hover">
+                <Share2 className="w-5 h-5" />
+              </Button>
+              <Button
+                size="sm"
+                className="glass-effect p-3 btn-hover"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X className="w-5 h-5" />
+              </Button>
+            </div>
+
+            {/* Navigation Buttons */}
+            <Button
+              className="absolute left-6 top-1/2 transform -translate-y-1/2 z-60 glass-effect p-4 btn-hover"
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </Button>
+
+            <Button
+              className="absolute right-6 top-1/2 transform -translate-y-1/2 z-60 glass-effect p-4 btn-hover"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </Button>
+
+            {/* Image Container */}
             <motion.div
-              className="relative max-w-4xl max-h-[90vh] mx-4"
+              className="relative max-w-5xl max-h-[85vh] mx-4"
               layoutId={`image-${selectedImage}`}
               onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={selectedImage}
                 alt="Selected image"
-                width={800}
-                height={600}
-                className="object-contain max-h-[80vh] rounded-lg"
+                width={1000}
+                height={800}
+                className="object-contain max-h-[85vh] rounded-lg shadow-2xl"
               />
-              
-              {/* Action Buttons */}
-              <div className="absolute top-4 right-4 flex space-x-2">
-                <Button size="sm" variant="secondary" className="p-2">
-                  <Download className="w-4 h-4" />
-                </Button>
-                <Button size="sm" variant="secondary" className="p-2">
-                  <Share2 className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  className="p-2"
-                  onClick={() => setSelectedImage(null)}
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              </div>
             </motion.div>
+
+            {/* Image Counter */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-60">
+              <div className="glass-effect px-4 py-2 rounded-full">
+                <span className="text-cyan-400 font-medium">
+                  {selectedImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -297,13 +359,13 @@ function GalleryContent() {
           <div className="flex justify-center mb-8">
             <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
               <img 
-                src="/fd0ac90efa8c4848d9a117ede8d73eb572412d06.png" 
+                src="/a-logo.png" 
                 alt="Arowona Logo" 
                 className="w-10 h-10 object-contain"
               />
             </div>
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-cyan-400 text-base">
             All content Copyright © 2025 Arowona Rodiyyah Onaopemipo
           </p>
         </div>
